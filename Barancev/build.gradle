@@ -2,4 +2,23 @@ plugins {
     id 'java'
     id 'application'
 }
-mainClassName = "HelloWorld"
+application {
+    mainClass = "HelloWorld"
+}
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.testng:testng:7.4.0'
+}
+
+test {
+    useTestNG()
+}
